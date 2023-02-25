@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Pokemon from "./component";
 import { Container, PokemonStyle, PokemonList } from "./style";
+import React from "react";
 
 export default function Home() {
 
@@ -8,7 +9,7 @@ export default function Home() {
 
     function getPokemons(){
         var pokemonPromises = [];
-        for(var i=1;i<101;i++){
+        for(var i=1;i<152;i++){
             pokemonPromises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`))
         }
         console.log(pokemonPromises)
@@ -19,7 +20,7 @@ export default function Home() {
 
     return (
         <Container>
-            <h1>Pokémon</h1>
+            <h1>Pokemon</h1>
             <div>
                 <PokemonList>
                     {
@@ -30,8 +31,7 @@ export default function Home() {
                                 </Pokemon>
                             )
                         })
-                    }
-                    
+                    }                    
                 </PokemonList>
             </div>
         </Container>

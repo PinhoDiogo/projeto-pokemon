@@ -1,7 +1,7 @@
-export default class PokemonTypeEntity{
-    name: string;
-
+export default class PokemonTypeEntity{    
+    name: string;    
+    
     constructor(name: string){
-        this.name=name;
-    }
+        this.name = name;        
+    }    
 }

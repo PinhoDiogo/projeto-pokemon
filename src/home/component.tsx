@@ -6,50 +6,55 @@ import PokemonEntity from "./entities/pokemon-entity";
 import PokemonLocationEntity from "./entities/pokemon-location-entity";
 import PokemonTypeEntity from "./entities/pokemon-type-entity";
 import { Container, PokemonStyle } from "./style";
+import React from "react";
 
 export default function Pokemon(props:any){
     const [pokemon, setPokemon] = useState<PokemonEntity>()
 
     async function getPokemonLocations(locationUrl: string): Promise<PokemonLocationEntity[]>{
-        var locations: PokemonLocationEntity[]=[];
+        var locations: PokemonLocationEntity[] = [];        
         var response = await fetch(locationUrl);
         var data = await response.json();
-
-        data.map(location => {
-            locations.push(new PokemonLocationEntity(location.location_area.name))
+        
+        data.slice(0,2).map(location => {
+            locations.push(new PokemonLocationEntity(location.location_area.name));
         })
-
+        
         return locations;
+
     }
-    
+
     function getPokemonByPromise(promissedPokemon: Promise<any>){
         promissedPokemon.then(response => response.json())
         .then(async data => {
             if(data.id !== undefined){
 
-                var pokemonAbilities: PokemonAbilityEntity[]=[];
+                var pokemonAbilities: PokemonAbilityEntity[] = [];
                 var pokemonTypes: PokemonTypeEntity[] = [];
                 var pokemonLocations: PokemonLocationEntity[] = [];
 
-                data.abilities.map(pokemonAbility =>{
+                data.abilities.slice(0,2).map(pokemonAbility => {
                     pokemonAbilities.push(new PokemonAbilityEntity(pokemonAbility.ability.name))
                 });
 
-                data.types.map(pokemonType => {
-                    pokemonType.push (new PokemonTypeEntity(pokemonType.type.name))
+                data.types.slice(0,2).map(pokemonType => {
+                    pokemonTypes.push(new PokemonTypeEntity(pokemonType.type.name))
                 })
 
                 pokemonLocations = await getPokemonLocations(data.location_area_encounters);
-
+                
                 var pokemonEntity: PokemonEntity;
                 pokemonEntity = new PokemonEntity(
-                data.id, 
-                data.name, 
-                pokemonTypes,
-                pokemonLocations, 
-                pokemonAbilities,
-                data.base_experience);
-                setPokemon(pokemonEntity);
+                    data.id, 
+                    data.name, 
+                    pokemonTypes, 
+                    pokemonLocations, 
+                    pokemonAbilities, 
+                    data.base_experience
+                );
+
+                setPokemon(pokemonEntity);   
+                console.log(pokemonEntity);
             }
         })
     }
@@ -57,12 +62,13 @@ export default function Pokemon(props:any){
     useEffect(() => getPokemonByPromise(props.promissed_pokemon), [])
 
     if(pokemon !== undefined){
-
         return (
             <Container>
                 <PokemonStyle color={getPokemonColorByType(pokemon.types[0].name)}>
-                    <Link to={`/pokemon-details/`}><img src={pokemon.imageUrl} alt={pokemon.name}/></Link>
-                    <span>{pokemon.name}</span>
+                    <Link to={{pathname:'/pokemon-details/', search: `?pokemon=${JSON.stringify(pokemon)}`}}>
+                        <img src={pokemon.imageUrl} alt={pokemon.name}/>
+                    </Link>
+                    <span>{pokemon.name.toUpperCase()}</span>
                 </PokemonStyle>
             </Container>
         )

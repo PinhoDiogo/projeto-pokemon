@@ -19,12 +19,12 @@ const colours = [
 	{type: 'fairy', color: '#D685AD'}
 ];
 
-export function getPokemonColorByType(type:string): string{
+export function getPokemonColorByType(type: string): string{
     var colorByType = '';
 
-    colours.map(color =>{
-        if(type==color.type){
-            colorByType = color.color
+    colours.map(color => {
+        if(type == color.type){
+            colorByType = color.color;
         }
     });
 

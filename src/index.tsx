@@ -13,7 +13,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/pokemon-details/"element={<PokemonDetails />} />
+      <Route path="/pokemon-details/" element={<PokemonDetails />} />
     </Routes>
   </BrowserRouter>
 );

@@ -1,60 +1,33 @@
 export const pokemonLocal = {
-    "id": 89,
-    "name": "muk",
+    "id": 1,
+    "name": "bulbasaur",
     "types": [
+        {
+            "name": "grass"
+        },
         {
             "name": "poison"
         }
     ],
     "locations": [
         {
-            "name": "celadon-city-area"
+            "name": "cerulean-city-area"
         },
         {
-            "name": "kanto-route-16-area"
+            "name": "pallet-town-area"
         },
         {
-            "name": "kanto-route-17-area"
-        },
-        {
-            "name": "kanto-route-18-area"
-        },
-        {
-            "name": "power-plant-area"
-        },
-        {
-            "name": "pokemon-mansion-1f"
-        },
-        {
-            "name": "pokemon-mansion-2f"
-        },
-        {
-            "name": "pokemon-mansion-3f"
-        },
-        {
-            "name": "pokemon-mansion-b1f"
-        },
-        {
-            "name": "unova-route-9-area"
-        },
-        {
-            "name": "castelia-sewers-area"
-        },
-        {
-            "name": "castelia-sewers-unknown-area-38"
+            "name": "lumiose-city-area"
         }
     ],
     "abilities": [
         {
-            "name": "stench"
+            "name": "overgrow"
         },
         {
-            "name": "sticky-hold"
-        },
-        {
-            "name": "poison-touch"
+            "name": "chlorophyll"
         }
     ],
-    "hp": 175,
-    "imageUrl": "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/89.svg"
+    "hp": 64,
+    "imageUrl": "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/1.svg"
 }
