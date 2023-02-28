@@ -3,21 +3,16 @@ import Pokemon from "./component";
 import { Container, PokemonStyle, PokemonList } from "./style";
 import React from "react";
 
-export default function Home() {
+interface Props{
+    pokemonsPromises: any[];
+}
 
-    const [pokemons, setPokemons] = useState<any[]>([])
+export default class Home extends React.Component<Props>{
 
-    function getPokemons(){
-        var pokemonPromises = [];
-        for(var i=1;i<152;i++){
-            pokemonPromises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`))
-        }
-        console.log(pokemonPromises)
-        setPokemons(pokemonPromises)
-    }
-
-    useEffect(()=>getPokemons(), [])
-
+   render(){
+        const {pokemonsPromises} = this.props;
+        const pokemons = pokemonsPromises;
+    
     return (
         <Container>
             <h1>Pokemon</h1>
@@ -36,4 +31,5 @@ export default function Home() {
             </div>
         </Container>
     )
+}
 }

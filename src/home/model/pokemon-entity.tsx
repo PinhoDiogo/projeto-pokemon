@@ -1,6 +1,6 @@
 import PokemonAbilityEntity from "./pokemon-ability-entity";
 import PokemonLocationEntity from "./pokemon-location-entity";
-import PokemonTypeEntity from "./pokemon-type-entity";
+import PokemonTypeEntity from "../model/pokemon-type-entity";
 
 export default class PokemonEntity{
     id: number;
