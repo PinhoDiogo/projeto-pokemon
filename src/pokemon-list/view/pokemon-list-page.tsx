@@ -1,4 +1,4 @@
-import Pokemon from "./pokemon-component";
+import Pokemon from "../../pokemon/view/pokemon-component";
 import { Container, PokemonList } from "./style";
 import React from "react";
 import { Props } from ".";
