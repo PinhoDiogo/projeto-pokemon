@@ -8,7 +8,7 @@ import PokemonAbilityEntity from "../model/pokemon-ability-entity";
 import PokemonTypeEntity from "../model/pokemon-type-entity";
 import { getPokemonColorByType } from "../../utils/pokemon-colors";
 
-export default function Pokemon(props:any){
+export default function PokemonComponent(props:any){
     const [pokemon, setPokemon] = useState<PokemonEntity>()
 
     async function getPokemonLocations(locationUrl: string): Promise<PokemonLocationEntity[]>{

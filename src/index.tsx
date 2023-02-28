@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PokemonDetails from './details';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import PokemonListController from './home/controller/pokemon-list-controller';
+import PokemonListController from './pokemon-list/controller/pokemon-list-controller';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

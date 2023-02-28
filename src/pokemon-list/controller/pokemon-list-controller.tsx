@@ -1,6 +1,6 @@
 import React from "react";
-import Home from "../view";
 import { fetchPokemons } from "../model/services/fetch-pokemons-services";
+import PokemonListPage from "../view/pokemon-list-page";
 
 interface Props{
 
@@ -29,6 +29,6 @@ export default class PokemonListController extends React.Component<Props, State>
 
 
     render(){
-        return <Home pokemonsPromises={this.state.pokemonPromises} />;
+        return <PokemonListPage pokemonsPromises={this.state.pokemonPromises} />;
     }
 }
